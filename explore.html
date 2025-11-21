@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khám phá - Đặc sản Trà Vinh</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+
+  <style>
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding-top: 50px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      border: 1px solid #ffd3e3;
+      border-radius: 20px 0 0 20px;
+      width: 300px;
+      font-size: 14px;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      border: none;
+      background: #ff7aa2;
+      color: #fff;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background: #b2365a;
+    }
+    /* ===== SIDEBAR ===== */
+.sidebar {
+    width: 230px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ff4f7d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #444;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hover */
+.sidebar ul li:hover {
+    background: #ffe7f0;
+    color: #ff4f7d;
+    transform: translateX(4px);
+}
+
+/* Active trạng thái đang chọn */
+.sidebar ul li.active {
+    background: #ff7aa2;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 122, 162, 0.4);
+}
+/* ===== LAYOUT NGĂN SIDEBAR + GRID ===== */
+.explore-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar 250px + grid tự giãn */
+    gap: 30px;                        /* khoảng cách giữa 2 bên */
+    margin-top: 20px;
+    align-items: start;               /* sidebar và grid thẳng đỉnh */
+}
+
+/* GRID CHO CÁC CARD */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+/* =======================
+   RESPONSIVE DESIGN
+   ======================= */
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+    .explore-layout {
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+    .explore-layout {
+        grid-template-columns: 1fr;  /* Sidebar nằm trên, grid phía dưới */
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+        top: 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .search-bar button {
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+/* Mobile nhỏ (<= 480px) */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr; /* Một card 100% */
+    }
+
+    .card .thumb img {
+        height: 180px;
+        object-fit: cover;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+<header>
+        <nav class="nav">
+            <a class="logo" href="#">
+                <i class="fa-solid fa-ice-cream"></i>
+                <span>Những chiếc bụng không đáy</span>
+            </a>
+
+            <div class="menu">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                <a href="detail.html"><i class="fa-solid fa-utensils"></i> Món ăn</a>
+                <a href="detail.html"><i class="fa-solid fa-book-open"></i> Công thức</a>
+                <a href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a>
+            </div>
+
+            <a class="cta" href="#">
+                <i class="fa-solid fa-star"></i> Khám phá
+            </a>
+        </nav>
+    </header>
+
+
+  <!-- MAIN CONTENT -->
+  <section class="explore">
+
+    <!-- Thanh tìm kiếm -->
+    <div class="search-bar">
+      <input type="text" placeholder="Tìm món ăn..." />
+      <button><i class="fa-solid fa-magnifying-glass"></i> Tìm</button>
+    </div>
+
+    <!-- Layout gồm Sidebar + Grid -->
+    <div class="explore-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h3><i class="fa-solid fa-list"></i> Danh mục</h3>
+        <ul>
+          <li data-filter="all" class="active">Tất cả món</li>
+          <li data-filter="dac-san">Đặc sản</li>
+          <li data-filter="dan-da">Dân dã</li>
+          <li data-filter="truyen-thong">Truyền thống</li>
+        </ul>
+      </aside>
+
+      <!-- GRID -->
+      <div class="grid">
+
+        <!-- CARD 1 -->
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/ht.jpg" alt="Bánh tét Trà Cuôn">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-clock"></i> 60 phút</span>
+              <span class="tag"><i class="fa-solid fa-candy-cane"></i> Đặc sản</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-cake-candles"></i> Bánh tét Trà Cuôn</div>
+            <p class="desc">Đặc sản Trà Vinh nổi tiếng với lớp nếp dẻo, nhân đậu xanh và thịt mặn mà.</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Xem món</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Công thức</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/gc.jpg" alt="Bánh canh Bến Có">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-bolt"></i> 40 phút</span>
+              <span class="tag"><i class="fa-solid fa-snowflake"></i> Đặc sản</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-martini-glass-citrus"></i> Bánh canh Bến Có</div>
+            <p class="desc">Sợi bánh canh dai mềm, nước dùng ngọt thanh từ thịt và tôm.</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Xem món</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Công thức</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Cháo ám Trà Vinh">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> 35 phút</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Đặc sản</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Cháo ám Trà Vinh</div>
+            <p class="desc">Món cháo dân dã của người Khmer, thơm mùi rau răm, hẹ và tiêu.</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Xem món</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Công thức</a>
+            </div>
+          </div>
+        </article>
+<article class="card">
+  <div class="thumb">
+    <img src="Images/vl.jpg" alt="Thêm thông tin">
+  </div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+    </div>
+    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+    <p class="desc">Thêm thông tin</p>
+    <div class="actions-row">
+      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <div class="thumb">
+    <img src="Images/vl.jpg" alt="Thêm thông tin">
+  </div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+    </div>
+    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+    <p class="desc">Thêm thông tin</p>
+    <div class="actions-row">
+      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <div class="thumb">
+    <img src="Images/vl.jpg" alt="Thêm thông tin">
+  </div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+    </div>
+    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+    <p class="desc">Thêm thông tin</p>
+    <div class="actions-row">
+      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <div class="thumb">
+    <img src="Images/vl.jpg" alt="Thêm thông tin">
+  </div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+    </div>
+    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+    <p class="desc">Thêm thông tin</p>
+    <div class="actions-row">
+      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+    </div>
+  </div>
+</article>
+<article class="card">
+  <div class="thumb">
+    <img src="Images/vl.jpg" alt="Thêm thông tin">
+  </div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+    </div>
+    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+    <p class="desc">Thêm thông tin</p>
+    <div class="actions-row">
+      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+    </div>
+  </div>
+</article>
+
+      </div> <!-- END GRID -->
+
+    </div> <!-- END explore-layout -->
+
+  </section>
+
+
+  <!-- SCRIPT -->
+  <script>
+    const searchInput = document.querySelector(".search-bar input");
+    const searchBtn = document.querySelector(".search-bar button");
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      card.dataset.originalDisplay = getComputedStyle(card).display;
+    });
+
+    function doSearch() {
+      let keyword = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        let title = card.querySelector(".title").innerText.toLowerCase();
+        let desc = card.querySelector(".desc").innerText.toLowerCase();
+
+        card.style.display =
+          (title.includes(keyword) || desc.includes(keyword))
+            ? card.dataset.originalDisplay
+            : "none";
+      });
+    }
+
+    searchBtn.addEventListener("click", doSearch);
+    searchInput.addEventListener("keyup", e => {
+      if (e.key === "Enter") doSearch();
+    });
+  </script>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <h3 class="footer-logo">Những chiếc bụng không đáy</h3>
+        <p>Ẩm thực là nghệ thuật — nơi món ăn không chỉ ngon mà còn là một tác phẩm.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu nhanh</h4>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+          <li><a href="#"><i class="fa-solid fa-utensils"></i> Món ăn</a></li>
+          <li><a href="#"><i class="fa-solid fa-book-open"></i> Công thức</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p><i class="fa-solid fa-location-dot"></i> ấp Mỹ Huê, Càng Long, Vĩnh Long</p>
+        <p><i class="fa-solid fa-phone"></i> 0375 896 100</p>
+        <p><i class="fa-solid fa-envelope"></i> lenguyenngocphung152008@gmail.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Phản hồi nhanh</h4>
+        <form class="newsletter">
+          <input type="email" placeholder="Nhập email">
+          <input type="text" placeholder="Nhập phản hồi của bạn">
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Tên nhóm — vị ngon của món ăn không chỉ là mùi vị | Thiết kế bởi tên nhóm</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

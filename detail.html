@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="Css/style.css">
     <style>
-        
+
     </style>
 </head>
 
@@ -19,7 +19,7 @@
         <nav class="nav">
             <a class="logo" href="#">
                 <i class="fa-solid fa-ice-cream"></i>
-                <span>Tên nhóm</span>
+                <span>Những chiếc bụng không đáy</span>
             </a>
 
             <div class="menu">
@@ -97,8 +97,12 @@
             </div>
 
             <div class="video-box">
-                <iframe src="https://www.youtube.com/embed/jnm0vyBR504" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/hN9Ph6xS0PQ" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
+
 
             <button class="feedback-btn"><i class="fa-solid fa-comment"></i> Gửi phản hồi</button>
 
@@ -172,44 +176,44 @@
         };
         /* -------- HANDLE SUBMIT FEEDBACK -------- */
         /* -------- HANDLE SUBMIT FEEDBACK -------- */
-const fbSubmit = document.querySelector(".feedback-form button");
-const notify = document.querySelector(".notify");
+        const fbSubmit = document.querySelector(".feedback-form button");
+        const notify = document.querySelector(".notify");
 
-fbSubmit.onclick = (e) => {
-    e.preventDefault();
+        fbSubmit.onclick = (e) => {
+            e.preventDefault();
 
-    const name = document.querySelector('.feedback-form input[type="text"]').value.trim();
-    const email = document.querySelector('.feedback-form input[type="email"]').value.trim();
-    const message = document.querySelector('.feedback-form textarea').value.trim();
+            const name = document.querySelector('.feedback-form input[type="text"]').value.trim();
+            const email = document.querySelector('.feedback-form input[type="email"]').value.trim();
+            const message = document.querySelector('.feedback-form textarea').value.trim();
 
-    // Đếm số sao active
-    const activeStars = document.querySelectorAll(".rating i.active").length;
+            // Đếm số sao active
+            const activeStars = document.querySelectorAll(".rating i.active").length;
 
-    // Nếu không nhập gì và cũng không chọn sao → KHÔNG làm gì
-    if (!name && !email && !message && activeStars === 0) {
-        return;
-    }
+            // Nếu không nhập gì và cũng không chọn sao → KHÔNG làm gì
+            if (!name && !email && !message && activeStars === 0) {
+                return;
+            }
 
-    // Tạo nội dung thông báo
-    if (activeStars > 0) {
-        notify.innerText = `⭐ Bạn đã đánh giá ${activeStars} sao!`;
-    } else {
-        notify.innerText = "🎀 Bạn đã phản hồi thành công!";
-    }
+            // Tạo nội dung thông báo
+            if (activeStars > 0) {
+                notify.innerText = `⭐ Bạn đã đánh giá ${activeStars} sao!`;
+            } else {
+                notify.innerText = "🎀 Bạn đã phản hồi thành công!";
+            }
 
-    // Hiện thông báo
-    notify.style.display = "block";
+            // Hiện thông báo
+            notify.style.display = "block";
 
-    // Tắt popup + overlay
-    fbForm.style.display = "none";
-    overlay.style.display = "none";
-    fbBtn.innerHTML = '<i class="fa-solid fa-comment"></i> Gửi phản hồi';
+            // Tắt popup + overlay
+            fbForm.style.display = "none";
+            overlay.style.display = "none";
+            fbBtn.innerHTML = '<i class="fa-solid fa-comment"></i> Gửi phản hồi';
 
-    // Tự ẩn sau 2 giây
-    setTimeout(() => {
-        notify.style.display = "none";
-    }, 2000);
-};
+            // Tự ẩn sau 2 giây
+            setTimeout(() => {
+                notify.style.display = "none";
+            }, 2000);
+        };
 
 
         /* -------- RATING STAR EFFECT -------- */
@@ -235,14 +239,14 @@ fbSubmit.onclick = (e) => {
         });
 
 
-        
+
     </script>
 
     <footer>
         <div class="footer-container">
             <!-- Cột 1: Logo + giới thiệu -->
             <div class="footer-col">
-                <h3 class="footer-logo"><i class="fa-solid fa-ice-cream"></i> Tên nhóm</h3>
+                <h3 class="footer-logo">Những chiếc bụng không đáy</h3>
                 <p>Ẩm thực là nghệ thuật —
                     nơi món ăn không chỉ ngon mà còn là một tác phẩm.</p>
             </div>
@@ -261,24 +265,19 @@ fbSubmit.onclick = (e) => {
             <!-- Cột 3: Liên hệ -->
             <div class="footer-col">
                 <h4>Liên hệ</h4>
-                <p><i class="fa-solid fa-location-dot"></i> ...Địa chỉ()</p>
-                <p><i class="fa-solid fa-phone"></i> 0123 456 789</p>
-                <p><i class="fa-solid fa-envelope"></i> tênnhóm@gmail.vn</p>
+                <p><i class="fa-solid fa-location-dot"></i> ấp Mỹ Huê, Càng Long, Vĩnh Long</p>
+                <p><i class="fa-solid fa-phone"></i> 0375 896 100</p>
+                <p><i class="fa-solid fa-envelope"></i> lenguyenngocphung152008@gmail.com</p>
             </div>
 
             <!-- Cột 4: Newsletter -->
             <div class="footer-col">
                 <h4>Phản hồi nhanh</h4>
                 <form class="newsletter">
-                    <input type="email" placeholder="Cho tôi biết cảm nghĩ của bạn">
+                    <input type="email" placeholder="Nhập email">
+                    <input type="text" placeholder="Nhập phản hồi của bạn">
                     <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
                 </form>
-                <div class="social">
-                    <a class="icon-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a class="icon-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a class="icon-btn" href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    <a class="icon-btn" href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                </div>
             </div>
         </div>
 
