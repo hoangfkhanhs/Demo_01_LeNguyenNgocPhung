@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khám phá - Đặc sản Trà Vinh</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Khám phá - Đặc sản Trà Vinh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="Css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style.css">
 
   <style>
     .search-bar {
@@ -39,166 +40,173 @@
     .search-bar button:hover {
       background: #b2365a;
     }
+
     /* ===== SIDEBAR ===== */
-.sidebar {
-    width: 230px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    height: fit-content;
-    position: sticky;
-    top: 100px;
-}
+    .sidebar {
+      width: 230px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
 
-.sidebar h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #ff4f7d;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+    .sidebar h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #ff4f7d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.sidebar ul li {
-    padding: 12px 15px;
-    font-size: 16px;
-    color: #444;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: 0.25s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .sidebar ul li {
+      padding: 12px 15px;
+      font-size: 16px;
+      color: #444;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* Hover */
-.sidebar ul li:hover {
-    background: #ffe7f0;
-    color: #ff4f7d;
-    transform: translateX(4px);
-}
+    /* Hover */
+    .sidebar ul li:hover {
+      background: #ffe7f0;
+      color: #ff4f7d;
+      transform: translateX(4px);
+    }
 
-/* Active trạng thái đang chọn */
-.sidebar ul li.active {
-    background: #ff7aa2;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(255, 122, 162, 0.4);
-}
-/* ===== LAYOUT NGĂN SIDEBAR + GRID ===== */
-.explore-layout {
-    display: grid;
-    grid-template-columns: 250px 1fr; /* Sidebar 250px + grid tự giãn */
-    gap: 30px;                        /* khoảng cách giữa 2 bên */
-    margin-top: 20px;
-    align-items: start;               /* sidebar và grid thẳng đỉnh */
-}
+    /* Active trạng thái đang chọn */
+    .sidebar ul li.active {
+      background: #ff7aa2;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(255, 122, 162, 0.4);
+    }
 
-/* GRID CHO CÁC CARD */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
-}
-/* =======================
+    /* ===== LAYOUT NGĂN SIDEBAR + GRID ===== */
+    .explore-layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      /* Sidebar 250px + grid tự giãn */
+      gap: 30px;
+      /* khoảng cách giữa 2 bên */
+      margin-top: 20px;
+      align-items: start;
+      /* sidebar và grid thẳng đỉnh */
+    }
+
+    /* GRID CHO CÁC CARD */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    /* =======================
    RESPONSIVE DESIGN
    ======================= */
 
-/* Tablet (<= 992px) */
-@media (max-width: 992px) {
-    .explore-layout {
+    /* Tablet (<= 992px) */
+    @media (max-width: 992px) {
+      .explore-layout {
         grid-template-columns: 200px 1fr;
         gap: 20px;
-    }
+      }
 
-    .sidebar {
+      .sidebar {
         width: 100%;
         position: relative;
         top: 0;
-    }
+      }
 
-    .grid {
+      .grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-}
-
-/* Mobile (<= 768px) */
-@media (max-width: 768px) {
-    .explore-layout {
-        grid-template-columns: 1fr;  /* Sidebar nằm trên, grid phía dưới */
+      }
     }
 
-    .sidebar {
+    /* Mobile (<= 768px) */
+    @media (max-width: 768px) {
+      .explore-layout {
+        grid-template-columns: 1fr;
+        /* Sidebar nằm trên, grid phía dưới */
+      }
+
+      .sidebar {
         width: 100%;
         margin-bottom: 20px;
         position: relative;
         top: 0;
-    }
+      }
 
-    .grid {
+      .grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 20px;
-    }
+      }
 
-    .search-bar {
+      .search-bar {
         flex-direction: column;
         gap: 10px;
-    }
+      }
 
-    .search-bar input {
+      .search-bar input {
         width: 100%;
         border-radius: 20px;
-    }
+      }
 
-    .search-bar button {
+      .search-bar button {
         width: 100%;
         border-radius: 20px;
-    }
-}
-
-/* Mobile nhỏ (<= 480px) */
-@media (max-width: 480px) {
-    .grid {
-        grid-template-columns: 1fr; /* Một card 100% */
+      }
     }
 
-    .card .thumb img {
+    /* Mobile nhỏ (<= 480px) */
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+        /* Một card 100% */
+      }
+
+      .card .thumb img {
         height: 180px;
         object-fit: cover;
+      }
     }
-}
-
   </style>
 </head>
 
 <body>
-<header>
-        <nav class="nav">
-            <a class="logo" href="#">
-                <i class="fa-solid fa-ice-cream"></i>
-                <span>Những chiếc bụng không đáy</span>
-            </a>
+  <header>
+    <nav class="nav">
+      <a class="logo" href="#">
+        <i class="fa-solid fa-ice-cream"></i>
+        <span>Những chiếc bụng không đáy</span>
+      </a>
 
-            <div class="menu">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
-                <a href="detail.html"><i class="fa-solid fa-utensils"></i> Món ăn</a>
-                <a href="detail.html"><i class="fa-solid fa-book-open"></i> Công thức</a>
-                <a href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a>
-            </div>
+      <div class="menu">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+        <a href="detail.html"><i class="fa-solid fa-utensils"></i> Món ăn</a>
+        <a href="detail.html"><i class="fa-solid fa-book-open"></i> Công thức</a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i> Liên hệ</a>
+      </div>
 
-            <a class="cta" href="#">
-                <i class="fa-solid fa-star"></i> Khám phá
-            </a>
-        </nav>
-    </header>
+      <a class="cta" href="explore.html">
+        <i class="fa-solid fa-star"></i> Khám phá
+      </a>
+    </nav>
+  </header>
 
 
   <!-- MAIN CONTENT -->
@@ -283,91 +291,91 @@
             </div>
           </div>
         </article>
-<article class="card">
-  <div class="thumb">
-    <img src="Images/vl.jpg" alt="Thêm thông tin">
-  </div>
-  <div class="content">
-    <div class="tags">
-      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
-      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
-    </div>
-    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
-    <p class="desc">Thêm thông tin</p>
-    <div class="actions-row">
-      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
-      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
-    </div>
-  </div>
-</article>
-<article class="card">
-  <div class="thumb">
-    <img src="Images/vl.jpg" alt="Thêm thông tin">
-  </div>
-  <div class="content">
-    <div class="tags">
-      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
-      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
-    </div>
-    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
-    <p class="desc">Thêm thông tin</p>
-    <div class="actions-row">
-      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
-      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
-    </div>
-  </div>
-</article>
-<article class="card">
-  <div class="thumb">
-    <img src="Images/vl.jpg" alt="Thêm thông tin">
-  </div>
-  <div class="content">
-    <div class="tags">
-      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
-      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
-    </div>
-    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
-    <p class="desc">Thêm thông tin</p>
-    <div class="actions-row">
-      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
-      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
-    </div>
-  </div>
-</article>
-<article class="card">
-  <div class="thumb">
-    <img src="Images/vl.jpg" alt="Thêm thông tin">
-  </div>
-  <div class="content">
-    <div class="tags">
-      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
-      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
-    </div>
-    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
-    <p class="desc">Thêm thông tin</p>
-    <div class="actions-row">
-      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
-      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
-    </div>
-  </div>
-</article>
-<article class="card">
-  <div class="thumb">
-    <img src="Images/vl.jpg" alt="Thêm thông tin">
-  </div>
-  <div class="content">
-    <div class="tags">
-      <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
-      <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
-    </div>
-    <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
-    <p class="desc">Thêm thông tin</p>
-    <div class="actions-row">
-      <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
-      <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
-    </div>
-  </div>
-</article>
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Thêm thông tin">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+            <p class="desc">Thêm thông tin</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Thêm thông tin">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+            <p class="desc">Thêm thông tin</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Thêm thông tin">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+            <p class="desc">Thêm thông tin</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Thêm thông tin">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+            <p class="desc">Thêm thông tin</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="Images/vl.jpg" alt="Thêm thông tin">
+          </div>
+          <div class="content">
+            <div class="tags">
+              <span class="tag"><i class="fa-solid fa-stopwatch"></i> Thêm thông tin</span>
+              <span class="tag"><i class="fa-solid fa-leaf"></i> Thêm thông tin</span>
+            </div>
+            <div class="title"><i class="fa-solid fa-bowl-food"></i> Thêm thông tin</div>
+            <p class="desc">Thêm thông tin</p>
+            <div class="actions-row">
+              <a class="pill" href="#"><i class="fa-solid fa-utensils"></i> Thêm thông tin</a>
+              <a class="link" href="#"><i class="fa-solid fa-book"></i> Thêm thông tin</a>
+            </div>
+          </div>
+        </article>
 
       </div> <!-- END GRID -->
 
